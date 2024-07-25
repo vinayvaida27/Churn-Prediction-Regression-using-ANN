@@ -17,7 +17,7 @@ with open('label_reg.pkl', 'rb') as file:
 
 with open('onehot_encoder_geo_reg.pkl', 'rb') as file:
     onehot_encoder_geo = pickle.load(file)
-with open('scaler_reg1.pkl', 'rb') as file:
+with open('scaler_reg.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
 # Streamlit app
@@ -50,15 +50,15 @@ input_data = pd.DataFrame({
     'Exited': [exited]
 })
 
-# One-hot encode 'Geography'
-geo_encoder = onehot_encoder_geo.transform([[geography]]).toarray()
-Geo_transformed = pd.DataFrame(geo_encoder, columns = onehot_encoder_geo.get_feature_names_out(['Geography']) )
+geo_encoded = onehot_encoder_geo.transform([[geography]]).toarray()
+geo_df = pd.DataFrame(geo_encoded, columns=onehot_encoder_geo.get_feature_names_out(['Geography']))
 
-# Combine one-hot encoded columns with input data
-input_data = pd.concat([input_data.reset_index(drop = True),Geo_transformed], axis =1)
+input_data = pd.concat([input_data, geo_df], axis=1)
 
 
-input_data_scaled = scaler.fit_transform(input_data)
+
+# Scale the data
+input_data_scaled = scaler.transform(input_data)
 
 
 # Predict churn
