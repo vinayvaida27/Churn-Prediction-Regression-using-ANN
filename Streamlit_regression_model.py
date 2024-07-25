@@ -24,6 +24,7 @@ with open('scaler_reg.pkl', 'rb') as file:
 
 st.title(' Estimated Salary Prediction')
 
+
 # User input
 geography = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
 gender = st.selectbox('Gender', label_encoder_geo.classes_)
