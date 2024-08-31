@@ -44,10 +44,9 @@ Deployment
 The trained model is deployed using Streamlit. The deployment allows users to interact with the model via a web interface. You can access the deployed model here.
 
 To run the Streamlit app locally, use the following command:
-```bash
-streamlit run Streamlit_regression_model.py
-
-      ```
+   ```bash
+   streamlit run Streamlit_regression_model.py
+    ```
 
 Usage
 Navigate to the deployed Streamlit app or run it locally as described above.
