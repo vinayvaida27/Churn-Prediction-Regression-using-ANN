@@ -30,9 +30,9 @@ To run this project locally, please follow these steps:
    cd Churn-Prediction-Regression-using-ANN
       ```
 Install the required packages:
-```bash
-pip install -r requirements.txt
-      ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 Model Training
 The ANN model was trained on the Churn_Modelling.csv dataset. Key steps in the training process include:
 
